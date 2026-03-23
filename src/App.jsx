@@ -4,7 +4,10 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useGLTF, Grid, Stars, OrbitControls} from '@react-three/drei';
 
 function Scene() {
-  const { scene } = useGLTF('/wasa.glb');
+
+  const baseUrl = import.meta.env.BASE_URL
+
+  const { scene } = useGLTF(`${baseUrl}wasa.glb`);
   
   const floorProps = useMemo(() => {
     const floorObject = scene.getObjectByName('Floor');
